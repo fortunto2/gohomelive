@@ -25,14 +25,14 @@ services:
       - .env
     command: python bot.py
     ports:
-      - "8080:8080"
+      - "8077:8080"
     labels:
       - "autoheal=true"
 
   redis:
     image: redis:7
-    ports:
-      - "6379:6379"
+#    ports:
+#      - "6377:6379"
     volumes:
       - ".docker/redis_data:/data"
 
