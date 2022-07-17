@@ -5,8 +5,8 @@ description = "Framework/toolkit for building Telegram bots with telebot and red
 authors = ["Igor Vaiman <gosha.vaiman@gmail.com>"]
 license = "GPLv3"
 readme = "README.md"
-repository = "https://github.com/bots-against-war/telebot-components"
-packages = [{include = "telebot_components"}]
+repository = "https://github.com/fortunto2/gohomelive.git"
+#packages = [{include = "telebot_components"}]
 
 [tool.poetry-dynamic-versioning]
 enable = true
