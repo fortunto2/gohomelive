@@ -1,0 +1,38 @@
+version: "3.4"
+
+services:
+
+  autoheal:
+    image: willfarrell/autoheal
+    tty: true
+    restart: always
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=all
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  bot: &backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bot
+    restart: on-failure
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: python bot.py
+    ports:
+      - "8080:8080"
+    labels:
+      - "autoheal=true"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - ".docker/redis_data:/data"
+

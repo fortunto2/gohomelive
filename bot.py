@@ -129,7 +129,7 @@ def create_feedback_bot(redis: RedisInterface, token: str, admin_chat_id: int):
                 Language.RU: "Пожалуйста, не присылайте в бот больше {} сообщений за {}.",
                 Language.EN: "Please send no more than {} messages in {}.",
             },
-            copied_to_user_ok="Скопировано в чат с пользовател_ьницей ✨",
+            copied_to_user_ok="Переслано в чат с пользовател_ьницей ✨",
         ),
         banned_users_store=banned_store,
         language_store=language_store,

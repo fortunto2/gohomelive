@@ -119,11 +119,11 @@ if __name__ == "__main__":
     redis_url = os.environ.get("REDIS_URL")
     redis = Redis.from_url(redis_url) if redis_url is not None else RedisEmulation()
 
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.WARNING)
 
     ONE_WAY = True
 
-    BASE_URL = "https://my-deployed-app.com"  # no trailing slash!; unused when ONE_WAY=True
+    BASE_URL = "https://bot.3dstr.ru"  # no trailing slash!; unused when ONE_WAY=True
 
     async def main():
         server_listening_future = asyncio.Future()
@@ -132,8 +132,8 @@ if __name__ == "__main__":
             admin_chat_id=os.environ["ADMIN_CHAT_ID"],
             user_api_key=os.environ["TRELLO_USER_API_KEY"],
             user_token=os.environ["TRELLO_USER_TOKEN"],
-            organization_name="my-trello-org",
-            board_name="my-trello-board",
+            organization_name="bash_future",
+            board_name="Заявки",
             reply_with_card_comments=not ONE_WAY,
             base_url=BASE_URL,
             redis=redis,
