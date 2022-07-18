@@ -129,7 +129,7 @@ if __name__ == "__main__":
     redis_url = os.environ.get("REDIS_URL")
     redis = Redis.from_url(redis_url) if redis_url is not None else RedisEmulation()
 
-    logging.basicConfig(level=logging.WARNING)
+    logging.basicConfig(level=logging.DEBUG)
 
     ONE_WAY = False
 
