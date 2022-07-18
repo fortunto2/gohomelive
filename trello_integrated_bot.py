@@ -1,4 +1,5 @@
 import asyncio
+from datetime import timedelta
 
 from telebot import AsyncTeleBot
 from telebot import types as tg
@@ -57,10 +58,11 @@ async def create_trello_integrated_feedback_bot(
             hashtags_in_admin_chat=True,
             hashtag_message_rarer_than=times.FIVE_MINUTES,
             unanswered_hashtag="новое",
+            confirm_forwarded_to_admin_rarer_than=timedelta(minutes=1)
         ),
         anti_spam=DisabledAntiSpam(),
         service_messages=ServiceMessages(
-            forwarded_to_admin_ok="ok",
+            forwarded_to_admin_ok="Ваше сообщение принято в работу",
             you_must_select_category=None,
             throttling_template=None,
             copied_to_user_ok="response ok",
@@ -81,7 +83,7 @@ async def create_trello_integrated_feedback_bot(
 Мы команда волонтеров, которая оказывает правовую и иную помощь в случае, если Вы или Ваш родственник хотите расторгнуть контракт о прохождении военной службы в России. 
 
 — Как пользоваться ботом? 
-Бот задаст Вам несколько вопросов, чтобы мы могли помочь, как можно более оперативно. Затем мы постараемся предоставить Вам инструкции, что делать в сложившейся ситуации. 
+Напишите кратко о вашей ситуации. Кто вы (военнослужащий/контрактник) и из какого вы региона. Затем мы постараемся предоставить Вам инструкции, что делать в сложившейся ситуации. 
 
 — Насколько это безопасно?
 Каждый военнослужащий вправе досрочно расторгнуть контракт о прохождении военной службы на условиях и в порядке, предусмотренных действующим законодательством. Уголовной или административной ответственности за досрочное расторжение контракта о прохождении военной службы не предусмотрено. Мы со своей стороны гарантируем полную конфиденциальность и не будем разглашать какие-либо сведения, факт Вашего обращения кому-либо.
