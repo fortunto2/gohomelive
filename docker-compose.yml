@@ -23,7 +23,7 @@ services:
       - .:/app
     env_file:
       - .env
-    command: python bot.py
+    command: python trello_integrated_bot.py
     ports:
       - "8077:8080"
     labels:
