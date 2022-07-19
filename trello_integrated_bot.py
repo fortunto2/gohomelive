@@ -96,7 +96,7 @@ async def create_trello_integrated_feedback_bot(
 
 Подпишись на наш канал @akbuzat_bash
 """
-        await bot.send_message(message.from_user.id, intro_txt, parse_mode='markdown')
+        await bot.send_message(message.from_user.id, intro_txt)
 
     feedback_handler.setup(bot)
 
